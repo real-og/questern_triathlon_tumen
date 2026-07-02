@@ -69,3 +69,4 @@ class State(StatesGroup):
     feed = State()
 
     terms = State()
+    waiting_for_city = State()
