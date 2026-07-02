@@ -67,3 +67,5 @@ class State(StatesGroup):
     finish = State()
     gift = State()
     feed = State()
+
+    terms = State()

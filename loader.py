@@ -12,7 +12,7 @@ SHEET_LINK = str(os.environ.get('SHEET_LINK'))
 GROUP_CHAT_ID_PHOTO = str(os.environ.get('GROUP_CHAT_ID_PHOTO'))
 GROUP_CHAT_ID_FEED = str(os.environ.get('GROUP_CHAT_FEEDBACK'))
 
-storage = RedisStorage2(db=2)
+storage = RedisStorage2(db=5)
 
 
 bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
