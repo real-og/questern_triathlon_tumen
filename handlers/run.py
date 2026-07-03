@@ -90,7 +90,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.answ1)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer6.lower():
-        with open('images/Буква1.png', 'rb') as photo:
+        with open('images/letter1.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         voice = InputFile("audio/Tumen_run-2.ogg")
         await message.answer_voice(voice=voice)
