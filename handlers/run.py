@@ -73,19 +73,19 @@ async def send_series(callback: types.CallbackQuery, state: FSMContext):
     file = InputFile("audio/Tumen_run-2.mp3", 'Voice message')
     await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
 
-@dp.callback_query_handler(state=State.run3)
+@dp.callback_query_handler(state=State.run4)
 async def send_series(callback: types.CallbackQuery, state: FSMContext):
     await bot.answer_callback_query(callback.id)
     file = InputFile("audio/Tumen_run-3.mp3", 'Voice message')
     await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
 
-@dp.callback_query_handler(state=State.run4)
+@dp.callback_query_handler(state=State.run6)
 async def send_series(callback: types.CallbackQuery, state: FSMContext):
     await bot.answer_callback_query(callback.id)
     file = InputFile("audio/Tumen_run-4.mp3", 'Voice message')
     await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
 
-@dp.callback_query_handler(state=State.run5)
+@dp.callback_query_handler(state=State.run8)
 async def send_series(callback: types.CallbackQuery, state: FSMContext):
     await bot.answer_callback_query(callback.id)
     file = InputFile("audio/Tumen_run-5.mp3", 'Voice message')
