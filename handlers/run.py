@@ -1,4 +1,4 @@
-from loader import dp, GROUP_CHAT_ID_PHOTO, GROUP_CHAT_ID_FEED
+from loader import dp, GROUP_CHAT_ID_PHOTO, GROUP_CHAT_ID_FEED, bot
 from aiogram import types
 import time
 from aiogram.dispatcher import FSMContext
@@ -59,6 +59,56 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
 
 
+
+
+@dp.callback_query_handler(state=State.run1)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio/Tumen_run-1.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run2)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio/Tumen_run-2.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run3)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio/Tumen_run-3.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run4)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio/Tumen_run-4.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run5)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio/Tumen_run-5.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+# @dp.callback_query_handler(state=State.run6)
+# async def send_series(callback: types.CallbackQuery, state: FSMContext):
+#     await bot.answer_callback_query(callback.id)
+#     file = InputFile("audio_sochi/run6.mp3", 'Voice message')
+#     await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+
+
+
+
+
+
+
+
+
+
+
+
 @dp.message_handler(state=State.wait_start_run)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text != buttons.start_run:
@@ -66,7 +116,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
     
     voice = InputFile("audio/Tumen_run-1.ogg")  
-    await message.answer_voice(voice=voice)
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await message.answer(texts.t73, reply_markup=kb.run)
     await State.run1.set()
     await state.update_data(start_run_time=int(time.time()))
@@ -93,7 +143,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         with open('images/letter1.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         voice = InputFile("audio/Tumen_run-2.ogg")
-        await message.answer_voice(voice=voice)
+        await message.answer_voice(voice=voice, reply_markup=kb.donthear)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run2.set()
     else:
@@ -144,7 +194,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
         voice = InputFile("audio/Tumen_run-3.ogg")
-        await message.answer_voice(voice=voice)
+        await message.answer_voice(voice=voice, reply_markup=kb.donthear)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run4.set()
     else:
@@ -179,7 +229,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
         voice = InputFile("audio/Tumen_run-4.ogg")
-        await message.answer_voice(voice=voice)
+        await message.answer_voice(voice=voice, reply_markup=kb.donthear)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run6.set()
     else:
@@ -213,7 +263,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
         voice = InputFile("audio/Tumen_run-5.ogg")
-        await message.answer_voice(voice=voice)
+        await message.answer_voice(voice=voice, reply_markup=kb.donthear)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run8.set()
     else:

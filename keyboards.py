@@ -95,3 +95,8 @@ gift = ReplyKeyboardMarkup([[buttons.get_present]],
 terms_accepted = InlineKeyboardMarkup()
 terms_accepted.add(InlineKeyboardButton(text='✅ Согласен', callback_data='accepted'))
 
+
+donthear = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='aa')
+donthear.row(dont_btn)
+
