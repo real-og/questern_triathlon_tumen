@@ -115,7 +115,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.answ2)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer7.lower():
-        with open('images/Буква Н.png', 'rb') as photo:
+        with open('images/БукваН.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t107)
         await State.answ3.set()
@@ -131,7 +131,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.answ3)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer9.lower():
-        with open('images/Буква И.png', 'rb') as photo:
+        with open('images/БукваИ.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t78, reply_markup=kb.go_next)
         await State.run3.set()
@@ -167,7 +167,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.answ4)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer13.lower():
-        with open('images/Буква Т.png', 'rb') as photo:
+        with open('images/БукваТ.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t78, reply_markup=kb.go_next)
         await State.run5.set()
@@ -201,7 +201,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.answ5)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer10.lower():
-        with open('images/Буква П.png', 'rb') as photo:
+        with open('images/БукваП.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t78, reply_markup=kb.go_next)
         await State.run7.set()
@@ -236,7 +236,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.answ6)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer14.lower():
-        with open('images/Буква С.png', 'rb') as photo:
+        with open('images/БукваС.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t88)
         await State.answ7.set()
