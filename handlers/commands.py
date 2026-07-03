@@ -8,6 +8,7 @@ import keyboards as kb
 
 @dp.message_handler(commands=['help'], state="*")
 async def send_welcome(message: types.Message, state: FSMContext):
+    print(message)
     await message.answer(texts.help)
 
 @dp.message_handler(commands=['terms'], state="*")

@@ -65,7 +65,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_run)
         return
     
-    voice = InputFile("audio/Бег_1-новый.ogg")  
+    voice = InputFile("audio/Tumen_run-1.ogg")  
     await message.answer_voice(voice=voice)
     await message.answer(texts.t73, reply_markup=kb.run)
     await State.run1.set()
@@ -92,7 +92,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer6.lower():
         with open('images/Буква1.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
-        voice = InputFile("audio/Бег_2-новый.ogg")
+        voice = InputFile("audio/Tumen_run-2.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run2.set()
@@ -143,7 +143,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.run3)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
-        voice = InputFile("audio/Бег_3-новый.ogg")
+        voice = InputFile("audio/Tumen_run-3.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run4.set()
@@ -178,7 +178,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.run5)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
-        voice = InputFile("audio/Бег_4-новый.ogg")
+        voice = InputFile("audio/Tumen_run-4.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run6.set()
@@ -212,7 +212,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 @dp.message_handler(state=State.run7)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
-        voice = InputFile("audio/Бег_5.ogg")
+        voice = InputFile("audio/Tumen_run-5.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run8.set()
@@ -267,7 +267,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t93)
         with open('images/Экипировка.png', 'rb') as photo:
             await message.answer_photo(photo, caption=texts.t94)
-        with open('fi.mp4', 'rb') as video:
+        with open('final_video.mp4', 'rb') as video:
             await message.answer_video(video)
         # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
         await message.answer(texts.t95, reply_markup=kb.gift)
