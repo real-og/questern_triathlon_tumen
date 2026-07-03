@@ -96,7 +96,23 @@ terms_accepted = InlineKeyboardMarkup()
 terms_accepted.add(InlineKeyboardButton(text='✅ Согласен', callback_data='accepted'))
 
 
-donthear = InlineKeyboardMarkup()
-dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='aa')
-donthear.row(dont_btn)
+donthear1 = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='d1')
+donthear1.row(dont_btn)
+
+donthear2 = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='d2')
+donthear2.row(dont_btn)
+
+donthear3 = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='d3')
+donthear3.row(dont_btn)
+
+donthear4 = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='d4')
+donthear4.row(dont_btn)
+
+donthear5 = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='d5')
+donthear5.row(dont_btn)
 
