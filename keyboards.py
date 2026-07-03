@@ -116,3 +116,6 @@ donthear5 = InlineKeyboardMarkup()
 dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='d5')
 donthear5.row(dont_btn)
 
+early_finish = ReplyKeyboardMarkup([[buttons.end_early, buttons.continue_quest]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)

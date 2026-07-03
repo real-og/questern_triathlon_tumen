@@ -20,17 +20,48 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.trans)
         return
 
-    await message.answer(texts.t49)
-    with open('images/Велосипедист.jpeg', 'rb') as photo:
-        await message.answer_photo(photo)
+    await message.answer(texts.t113, reply_markup=kb.early_finish)
+    await State.choose_option.set()
 
-    await message.answer(texts.t50, reply_markup=kb.start_velo_terms)
-    await State.wait_start_velo_terms.set()
 
-    utc_plus_3 = timezone(timedelta(hours=3))
-    now_utc3 = datetime.now(utc_plus_3)
-    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
-    await aiotable.update_cell(message.from_user.id, 9, datetime_str)
+@dp.message_handler(state=State.choose_option)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text == buttons.end_early:
+        await message.answer(texts.t114)
+        await message.answer(texts.t95, reply_markup=kb.gift)
+        await State.gift.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 26, datetime_str)
+    elif message.text == buttons.continue_quest:
+        await message.answer(texts.t115)
+        with open('images/Велосипедист.jpeg', 'rb') as photo:
+            await message.answer_photo(photo)
+
+        await message.answer(texts.t50, reply_markup=kb.start_velo_terms)
+        await State.wait_start_velo_terms.set()
+    else:
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.early_finish)
+
+
+# @dp.message_handler(state=State.state10)
+# async def send_welcome(message: types.Message, state: FSMContext):
+#     if message.text != buttons.transit:
+#         await message.answer(texts.wrong_btn_input, reply_markup=kb.trans)
+#         return
+
+#     await message.answer(texts.t49)
+#     with open('images/Велосипедист.jpeg', 'rb') as photo:
+#         await message.answer_photo(photo)
+
+#     await message.answer(texts.t50, reply_markup=kb.start_velo_terms)
+#     await State.wait_start_velo_terms.set()
+
+#     utc_plus_3 = timezone(timedelta(hours=3))
+#     now_utc3 = datetime.now(utc_plus_3)
+#     datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+#     await aiotable.update_cell(message.from_user.id, 9, datetime_str)
 
 
 @dp.message_handler(state=State.wait_start_velo_terms)

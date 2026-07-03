@@ -31,7 +31,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
     # await message.answer(texts.t2)
     await State.terms.set()
     # await State.enter_name.set()
-    # await State.finish_velo.set()
+
+
 
 @dp.callback_query_handler(state=State.terms)
 async def agree_callback(call: types.CallbackQuery):

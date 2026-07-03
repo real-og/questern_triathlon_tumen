@@ -70,3 +70,4 @@ class State(StatesGroup):
 
     terms = State()
     waiting_for_city = State()
+    choose_option = State()
