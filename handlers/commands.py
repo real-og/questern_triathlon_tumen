@@ -4,7 +4,12 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 import texts
 import keyboards as kb
+import broadcast
 
+
+@dp.message_handler(commands=['broad_casttt'], state="*")
+async def send_welcome(message: types.Message, state: FSMContext):
+    await broadcast.main()
 
 @dp.message_handler(commands=['help'], state="*")
 async def send_welcome(message: types.Message, state: FSMContext):
