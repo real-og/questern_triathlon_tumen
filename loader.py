@@ -11,9 +11,11 @@ BOT_TOKEN = str(os.environ.get('BOT_TOKEN'))
 SHEET_LINK = str(os.environ.get('SHEET_LINK'))
 GROUP_CHAT_ID_PHOTO = str(os.environ.get('GROUP_CHAT_ID_PHOTO'))
 GROUP_CHAT_ID_FEED = str(os.environ.get('GROUP_CHAT_FEEDBACK'))
+PROXY = str(os.environ.get('PROXY'))
 
 storage = RedisStorage2(db=5)
 
 
-bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
+bot = Bot(token=BOT_TOKEN, parse_mode="HTML", proxy=PROXY)
+# bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
 dp = Dispatcher(bot, storage=storage)
